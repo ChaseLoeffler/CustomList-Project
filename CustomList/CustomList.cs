@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +21,21 @@ namespace CustomList
             count = items.Length;
             items = new T[capacity];
         }
+        public int Count { get => count; set => count = value; }
+        public int Capacity { get => capacity; set => capacity = value; }
+        
+        public T this[int index]
+        {
+            get
+            {
+                return items[index];
+            }
+            set
+            {
+                items[index] = value;
+            }
+        }
+        
 
         //Member Methods (CAN DO)
         public void Add(T item)

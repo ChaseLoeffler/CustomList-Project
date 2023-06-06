@@ -13,7 +13,7 @@ namespace CustomList_Tests
             //Act
             myList.Add("hello");
             //Assert
-            Assert.AreEqual(1, myList.count);
+            Assert.AreEqual(1, myList.Count);
         }
         [TestMethod]
         public void AddMethod_AddOneItem_FirstItemAtIndexZero()
@@ -57,7 +57,7 @@ namespace CustomList_Tests
             myList.Add("me");
 
             //Assert
-            Assert.AreEqual(8, myList.capacity);
+            Assert.AreEqual(8, myList.Capacity);
         }
         [TestMethod]
         public void AddMethod_ExceedCapacity_OriginalItemsPersistInSameIndex()
