@@ -41,5 +41,25 @@ namespace CustomList_Tests
             //Assert
             Assert.AreEqual(2, myList.Count);
         }
+        [TestMethod]
+        public void RemoveMethod_RemoveOneItem_RemainingItemsShiftDownIndex()
+        {
+            //Arrange
+            CustomList<string> myList = new CustomList<string>();
+            //Act
+            myList.Add("hello");
+            myList.Add("world");
+            myList.Add("is");
+            myList.Add("it");
+            myList.Add("me");
+            myList.Add("you're");
+            myList.Add("looking");
+            myList.Add("for");
+            myList.Add("I");
+            myList.Add("can");
+            myList.Remove("you're");
+            //Assert
+            Assert.AreEqual("look", myList[5]);
+        }
     }
 }
