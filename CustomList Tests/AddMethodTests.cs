@@ -55,6 +55,7 @@ namespace CustomList_Tests
             myList.Add("is");
             myList.Add("it");
             myList.Add("me");
+            myList.Add("you're");
 
             //Assert
             Assert.AreEqual(8, myList.Capacity);
@@ -73,7 +74,49 @@ namespace CustomList_Tests
             myList.Add("me");
 
             //Assert
-            Assert.AreEqual("is", myList[2]);
+            Assert.AreEqual("it", myList[3]);
+        }
+        [TestMethod]
+        public void AddMethod_ExceedCapacity_CapacityContiuesDoubleing()
+        {
+            //Arrange
+            CustomList<string> myList = new CustomList<string>();
+
+            //Act
+            myList.Add("hello");
+            myList.Add("world");
+            myList.Add("is");
+            myList.Add("it");
+            myList.Add("me");
+            myList.Add("you're");
+            myList.Add("looking");
+            myList.Add("for");
+            myList.Add("I");
+            myList.Add("Can");
+
+            //Assert
+            Assert.AreEqual(16, myList.Capacity);
+        }
+        [TestMethod]
+        public void AddMethod_ExceedCapacity_ItemsAreInProperIndex()
+        {
+            //Arrange
+            CustomList<string> myList = new CustomList<string>();
+
+            //Act
+            myList.Add("hello");
+            myList.Add("world");
+            myList.Add("is");
+            myList.Add("it");
+            myList.Add("me");
+            myList.Add("you're");
+            myList.Add("looking");
+            myList.Add("for");
+            myList.Add("I");
+            myList.Add("Can");
+
+            //Assert
+            Assert.AreEqual("I", myList[8]);
         }
     }
 }

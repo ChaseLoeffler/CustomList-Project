@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,12 @@ namespace CustomList
         public CustomList()
         {
             capacity = 4;
-            count = items.Length;
             items = new T[capacity];
+            count = 0;
         }
-        public int Count { get => count; set => count = value; }
-        public int Capacity { get => capacity; set => capacity = value; }
-        
+        public int Count { get => count;}
+        public int Capacity { get => capacity;}
+
         public T this[int index]
         {
             get
@@ -41,8 +42,26 @@ namespace CustomList
         public void Add(T item)
         {
             //'item' parameter should be added to internal 'items' array
+            if (Count < Capacity)
+            {
+                items[count] = item;
+                ++count;
+            }
             //if items array is at capacity, double capacity and create new array
             //transfer all items to new array
+            else if(Count >= Capacity)
+            {
+                capacity *= 2;
+                T[] array = new T[Capacity];
+                for (int i = 0; i <items.Length; i++)
+                {
+                    array[i] = items[i];
+                }
+                array[count] = item;
+                ++count;
+                items = array;
+            }
+
         }
 
         public bool Remove(T item)
