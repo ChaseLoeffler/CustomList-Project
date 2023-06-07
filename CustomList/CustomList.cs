@@ -36,32 +36,39 @@ namespace CustomList
                 items[index] = value;
             }
         }
-        
+
 
         //Member Methods (CAN DO)
         public void Add(T item)
         {
             //'item' parameter should be added to internal 'items' array
-            if (Count < Capacity)
-            {
-                items[count] = item;
-                ++count;
-            }
             //if items array is at capacity, double capacity and create new array
             //transfer all items to new array
-            else if(Count >= Capacity)
+            try
             {
-                capacity *= 2;
-                T[] array = new T[Capacity];
-                for (int i = 0; i <items.Length; i++)
+                if (Count < Capacity)
                 {
-                    array[i] = items[i];
+                    items[count] = item;
+                    ++count;
                 }
-                array[count] = item;
-                ++count;
-                items = array;
-            }
+                else if (Count >= Capacity)
+                {
+                    capacity *= 2;
+                    T[] array = new T[Capacity];
+                    for (int i = 0; i < items.Length; i++)
+                    {
+                        array[i] = items[i];
+                    }
+                    array[count] = item;
+                    ++count;
+                    items = array;
+                }
 
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+            }
         }
 
         public bool Remove(T item)
@@ -69,7 +76,37 @@ namespace CustomList
             //If 'item' exists in the 'items' array, remove its first instance
             //Any items coming after the removed item should be shifted down so there is no empty index.
             //If 'item' was removed, return true. If no item was removed, return false.
-            return false;
+            bool result = false;
+            int index = 0;
+            try
+            {
+                index = Array.IndexOf(items, item);
+                if (index >= 0)
+                {
+                    result = true;
+                    int i = 0;
+                    while (i!=index)
+                    {
+                        i++;
+                    }
+                    while (i<items.Length-1)
+                    {
+                        items[i] = items[i + 1];
+                        i++;
+                    }
+                    --count;
+                }
+                else
+                {
+                    
+                }
+
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+            }
+            return result;
         }
 
         public override string ToString()

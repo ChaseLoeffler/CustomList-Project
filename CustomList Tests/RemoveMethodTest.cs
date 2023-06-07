@@ -13,7 +13,7 @@ namespace CustomList_Tests
             //Act
             myList.Add("Hello");
             myList.Add("is");
-            myList.Remove("Hello");
+            myList.Remove("is");
             //Assert
             Assert.AreEqual(1, myList.Count);
         }
@@ -59,7 +59,7 @@ namespace CustomList_Tests
             myList.Add("can");
             myList.Remove("you're");
             //Assert
-            Assert.AreEqual("look", myList[5]);
+            Assert.AreEqual("looking", myList[5]);
         }
         [TestMethod]
         public void RemoveMethod_RemoveItemAtIndexFive_OtherInstancesOfTheItemRemainOnlyTheFirstIsRemoved()
@@ -84,7 +84,7 @@ namespace CustomList_Tests
             myList.Add("you're");
             myList.Remove("you're");
             //Assert
-            Assert.AreEqual("you're", myList[14]);
+            Assert.AreEqual("you're", myList[13]);
         }
 
     }
