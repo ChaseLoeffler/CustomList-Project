@@ -25,9 +25,21 @@ namespace CustomList_Tests
             //Act
             myList.Add("Hello");
             myList.Add("is");
-            myList.Remove("Hello");
+            bool test = myList.Remove("Hello");
             //Assert
-            Assert.AreEqual(, myList.Count);
+            Assert.AreEqual(true,test);
+        }
+        [TestMethod]
+        public void RemoveMethod_RemoveOneItemNotInList_CountDoesNotDecrement()
+        {
+            //Arrange
+            CustomList<string> myList = new CustomList<string>();
+            //Act
+            myList.Add("Hello");
+            myList.Add("is");
+            myList.Remove("Banana");
+            //Assert
+            Assert.AreEqual(2, myList.Count);
         }
     }
 }
