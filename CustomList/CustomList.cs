@@ -96,10 +96,6 @@ namespace CustomList
                     }
                     --count;
                 }
-                else
-                {
-                    
-                }
 
             }
             catch (Exception err)
@@ -112,7 +108,20 @@ namespace CustomList
         public override string ToString()
         {
             //returns a single string that contains all items from array
-            return "";
+            string sentance = "";
+            bool loop = true;
+            while (loop==true)
+            {
+                    for (int i = 0; i < count; i++)
+                    {
+                        string capIndex = items[i]?.ToString() + ", ";
+                        sentance += capIndex;
+                    }
+                
+                loop = false;
+            }
+            
+            return sentance.Trim().TrimEnd(',');
         }
 
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)

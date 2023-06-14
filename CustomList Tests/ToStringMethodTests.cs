@@ -15,7 +15,7 @@ namespace CustomList_Tests
             myList.Add("is");
             string result = myList.ToString();
             //Assert
-            Assert.AreEqual("Hello , is .", result);
+            Assert.AreEqual("Hello, is", result);
         }
         [TestMethod]
         public void ToStringMethod_CreatListOfInts_ReturnsListAsStrings()
@@ -27,7 +27,7 @@ namespace CustomList_Tests
             myList.Add(2);
             string result = myList.ToString();
             //Assert
-            Assert.AreEqual("1 , 2 .", result);
+            Assert.AreEqual("1, 2", result);
         }
         [TestMethod]
         public void ToStringMethod_CreateEmptyList_ReturnsListAsEmptyString()
@@ -37,7 +37,7 @@ namespace CustomList_Tests
             //Act
             string result = myList.ToString();
             //Assert
-            Assert.AreEqual(" ", result);
+            Assert.AreEqual("", result);
         }
         
     }
