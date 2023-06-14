@@ -112,11 +112,18 @@ namespace CustomList
             bool loop = true;
             while (loop==true)
             {
+                try
+                {
                     for (int i = 0; i < count; i++)
                     {
                         string capIndex = items[i]?.ToString() + ", ";
                         sentance += capIndex;
                     }
+                }
+                catch (NullReferenceException)
+                {
+                    sentance = "";
+                }
                 
                 loop = false;
             }
