@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -134,12 +135,22 @@ namespace CustomList
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
         {
             //returns a single CustomList<T> that contains all items from firstList and all items from secondList 
-            return null;
+            CustomList<T> combinedLists = new();
+            for (int i = 0; i < firstList.count; i++)
+            {
+                combinedLists.Add(firstList[i]);
+            }
+            for (int i = 0; i < secondList.count; i++)
+            {
+                combinedLists.Add(secondList[i]);
+            }
+            return combinedLists;
         }
 
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
         {
             //returns a single CustomList<T> with all items from firstList, EXCEPT any items that also appear in secondList
+
             return null;
         }
 

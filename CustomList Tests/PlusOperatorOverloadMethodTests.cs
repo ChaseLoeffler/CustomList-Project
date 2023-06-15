@@ -27,8 +27,10 @@ namespace CustomList_Tests
             twoList.Add(4);
             CustomList<int> combinedLists = oneList + twoList;
 
+            string result = combinedLists.ToString();
+
             //Assert
-            Assert.AreEqual(oneList + twoList,combinedLists);
+            Assert.AreEqual("1, 2, 1, 2, 1, 2, 1, 2, 3, 4, 3, 4",result);
 
         }
         [TestMethod]
@@ -51,10 +53,13 @@ namespace CustomList_Tests
             twoList.Add(4);
             twoList.Add(3);
             twoList.Add(4);
+
             CustomList<int> combinedLists = oneList + twoList;
 
+            string result = combinedLists.ToString();
+
             //Assert
-            Assert.AreEqual(oneList + twoList, combinedLists);
+            Assert.AreEqual("1, 2, 1, 2, 3, 4, 3, 4, 3, 4, 3, 4",result);
 
         }
         [TestMethod]
@@ -68,14 +73,13 @@ namespace CustomList_Tests
             twoList.Add(4);
             twoList.Add(3);
             twoList.Add(4);
-            twoList.Add(3);
-            twoList.Add(4);
-            twoList.Add(3);
-            twoList.Add(4);
+
             CustomList<int> combinedLists = oneList + twoList;
 
+            string result = combinedLists.ToString();
+
             //Assert
-            Assert.AreEqual(twoList, combinedLists);
+            Assert.AreEqual("3, 4, 3, 4", result);
 
         }
         [TestMethod]
@@ -92,8 +96,10 @@ namespace CustomList_Tests
 
             CustomList<int> combinedLists = oneList + twoList;
 
+            string result = combinedLists.ToString();
+
             //Assert
-            Assert.AreEqual(oneList, combinedLists);
+            Assert.AreEqual("1, 2, 1, 2", result);
 
         }
 
