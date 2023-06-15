@@ -1,0 +1,96 @@
+CustomList<T> - Operator Overload 
+
+Definition-
+Namespace: CustomList
+
+Overloads the "-"(minus) Operator allowing to subtract vaules found in one list that are also found in another List of the same data type.
+
+C#
+Public static CustomList<T> operator-(CustomList<T> firstList, CustomList<T> secondList)
+
+Parameters-
+firstList CustomList<T> , secondList CustomList<T>
+The first list is the list that will have vaules removed if the vaules in the secondlist are found to also excist in the first list. 
+Only the first instances of those vaules are removed.
+
+Returns-
+CustomList<T>
+returns a single CustomList<T> with all items from firstList, execpt any items that also appear in secondList.
+
+Implements-
+Remove(T item)
+
+
+Example
+The following example shows two lists being created then implementing the operator overide to allow vaules form one to be removed from the other.
+
+//Create two Lists
+
+            CustomList<int> oneList = new();
+            CustomList<int> twoList = new();
+// Using the .Add method add interagers to both lists
+            oneList.Add(1);
+            oneList.Add(2);
+            oneList.Add(3);
+            oneList.Add(4);
+            oneList.Add(5);
+            oneList.Add(6);
+            oneList.Add(7);
+            oneList.Add(8);
+            twoList.Add(1);
+            twoList.Add(3);
+            twoList.Add(5);
+            twoList.Add(7);
+            twoList.Add(9);
+
+//Instantiate a new CustomList and set it equal to the first list minus the second list
+            CustomList<int> newList = oneList - twoList;
+
+
+// The Operator overide will be called and with the use of a for loop and the .Remove method. It will loop threw each index in the second list and using the remove method will remove any instance of the vaule found in the first list. Only the first instance of that vaule will be removed.
+
+            //the logic used when using the overloaded minus operator.
+            for (int i = 0; i < secondList.count; i++)
+            {
+                firstList.Remove(secondList[i]);
+            }
+
+            return firstList;
+
+
+// the results of subtracting the items in the second list from the first list above will result in a new list with the vaules from the second removed we can use a for each loop to display the results
+
+            foreach (int item in newList)
+            {
+                console.writeline(item)
+            }
+
+
+            //result would be
+            //2
+            //4
+            //6
+            //8
+
+//Note that a semilar seniorio with two lists but the first has three instances of that vaule but the second on has one the first instance of that vaule will be removed not all
+            CustomList<int> oneList = new();
+            CustomList<int> twoList = new();
+
+            oneList.Add(3);
+            oneList.Add(3);
+            oneList.Add(3);
+            twoList.Add(1);
+            twoList.Add(2);
+            twoList.Add(3);
+
+            CustomList<int> newList = oneList - twoList;
+
+            foreach (int item in newList)
+            {
+                console.writeline(item)
+            }
+
+
+            //result would be
+            //3
+            //3

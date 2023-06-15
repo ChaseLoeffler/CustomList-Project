@@ -52,6 +52,8 @@ namespace CustomList_Tests
             twoList.Add(4);
             twoList.Add(3);
             twoList.Add(4);
+
+            //To save time switched oneList and twoList  so one is being subtracted by two. As doing so the "Second" list is now bigger.
             CustomList<int> newList = twoList - oneList;
 
             string result = newList.ToString();
