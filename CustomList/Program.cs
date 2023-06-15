@@ -18,22 +18,24 @@
             //Console.WriteLine(n);
 
             //Arrange
-            //    CustomList<int> oneList = new();
-            //    CustomList<string> twoList = new();
-            //    //Act
-            //    oneList.Add(1);
-            //    oneList.Add(2);
-            //    oneList.Add(1);
-            //    oneList.Add(2);
+            CustomList<int> oneList = new();
+            CustomList<int> twoList = new();
+            //Act
+            oneList.Add(1);
+            oneList.Add(2);
+            oneList.Add(1);
+            oneList.Add(2);
 
-            //    twoList.Add("A");
-            //    twoList.Add("B");
-            //    twoList.Add("A");
-            //    twoList.Add("B");
-            //    CustomList<int> combinedLists = oneList + twoList;
+            twoList.Add(1);
+            twoList.Add(2);
+            twoList.Add(1);
+            twoList.Add(2);
+            CustomList<int> combinedLists = oneList - twoList;
 
-            //    string n = combinedLists.ToString();
-            //    Console.WriteLine(n);
+            combinedLists.Add(1);
+
+            string n = combinedLists.ToString();
+            Console.WriteLine(n);
         }
     }
 }
