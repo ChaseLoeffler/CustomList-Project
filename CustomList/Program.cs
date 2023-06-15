@@ -30,12 +30,17 @@
             twoList.Add(2);
             twoList.Add(1);
             twoList.Add(2);
-            CustomList<int> combinedLists = oneList - twoList;
+            CustomList<int> combinedLists = oneList + twoList;
 
-            combinedLists.Add(1);
+            foreach (int item in combinedLists)
+            {
+                Console.WriteLine(item);
+            }
 
-            string n = combinedLists.ToString();
-            Console.WriteLine(n);
+            //combinedLists.Add(1);
+
+            //string n = combinedLists.ToString();
+            //Console.WriteLine(n);
         }
     }
 }
